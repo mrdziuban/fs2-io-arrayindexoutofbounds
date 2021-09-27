@@ -1,6 +1,6 @@
-# fs2-io-arrayindexoutofbonds
+# fs2-writeOutputStream
 
-This is a repository to reproduce an `ArrayIndexOutOfBondsException` using [fs2](https://github.com/typelevel/fs2).
+This is a repository to reproduce an `ArrayIndexOutOfBoundsException` using [fs2.io.writeOutputStream](https://github.com/typelevel/fs2/blob/v3.1.3/io/shared/src/main/scala/fs2/io/io.scala#L105).
 
 Clone this repository, `cd` into the directory, and run one of the following commands to reproduce the error on either fs2 v2.x or v3.x:
 
@@ -20,8 +20,8 @@ Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException
   at fs2.io.internal.PipedStreamBuffer$$anon$2.write(PipedStreamBuffer.scala:302)
   at java.io.OutputStream.write(OutputStream.java:75)
   at fs2.io.package$.$anonfun$writeOutputStream$3(io.scala:136)
-  at unsafeRunSync @ example.Test$.main(Test.scala:29)
-  at delay$extension @ fs2.io.file.FileHandle$.fromPath(FileHandle.scala:107)
+  at unsafeRunSync @ example.Test$.main(Test.scala:26)
+  at delay$extension @ fs2.io.package$.$anonfun$readOutputStream$2(io.scala:165)
   at map @ fs2.internal.CompileScope.interruptibleEval(CompileScope.scala:413)
   at flatMap @ fs2.internal.FreeC$.go$1(Algebra.scala:503)
   at flatMap @ fs2.internal.FreeC$.interruptGuard$1(Algebra.scala:436)
@@ -34,7 +34,7 @@ Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException
   at flatMap @ fs2.internal.FreeC$.go$1(Algebra.scala:460)
   at flatMap @ fs2.internal.FreeC$.outerLoop$1(Algebra.scala:595)
   at flatMap @ fs2.internal.FreeC$.interruptGuard$1(Algebra.scala:436)
-  at unsafeRunSync @ example.Test$.main(Test.scala:29
+  at unsafeRunSync @ example.Test$.main(Test.scala:26)
 ```
 
 ### fs2 v3.x stack trace
