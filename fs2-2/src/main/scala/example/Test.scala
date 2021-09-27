@@ -13,7 +13,7 @@ object Test {
 
   val byteStream = Stream
     .chunk[IO, Byte](Chunk.array(("foobar" * 50000).getBytes("UTF-8")))
-    .repeatN(7200L) // 6 * 5,000 * 7,200 == 2,160,000,000
+    .repeatN(7200L) // 6 * 50,000 * 7,200 == 2,160,000,000
 
   def writeToOutputStream(out: OutputStream): IO[Unit] =
     contextShift.evalOn(outputWriteEc)(byteStream
